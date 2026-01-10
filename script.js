@@ -20,31 +20,31 @@ closeMenu.addEventListener("click", closeMenuHandler);
 const cardsData = [
     {
         image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200',
-        name: 'Sophia Carter',
-        handle: '@sophiacodes',
-        date: 'February 14, 2025',
-        quote: 'This SaaS app has completely streamlined our onboarding process. What used to take hours now takes minutes!',
+        name: 'Sophie Martin',
+        handle: '@sophiemartin',
+        date: '14 février 2025',
+        quote: 'L\'application mobile développée par Astobia Info Tech a complètement transformé notre façon de travailler. Ce qui prenait des heures se fait maintenant en minutes !',
     },
     {
         image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200',
-        name: 'Ethan Walker',
-        handle: '@ethanwrites',
-        date: 'March 3, 2025',
-        quote: 'We’ve tried several tools, but nothing comes close in terms of speed and simplicity. Absolute game-changer.',
+        name: 'Thomas Dubois',
+        handle: '@thomasdubois',
+        date: '3 mars 2025',
+        quote: 'Nous avons essayé plusieurs solutions, mais rien ne se compare en termes de rapidité et de simplicité. Un véritable changement de jeu.',
     },
     {
         image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60',
-        name: 'Maya Patel',
-        handle: '@mayapatel',
-        date: 'April 22, 2025',
-        quote: 'The automation features alone have saved our team countless hours every week. Worth every penny.',
+        name: 'Marie Leclerc',
+        handle: '@marieleclerc',
+        date: '22 avril 2025',
+        quote: 'Leur plateforme SaaS nous a fait économiser des heures chaque semaine. Chaque centime en vaut la peine.',
     },
     {
         image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60',
-        name: 'Liam Brooks',
-        handle: '@liambrooks',
-        date: 'May 18, 2025',
-        quote: 'Setup was ridiculously easy. Within 10 minutes, we were running live and onboarding our first customers.',
+        name: 'Pierre Bernard',
+        handle: '@pierrebernard',
+        date: '18 mai 2025',
+        quote: 'La mise en place a été incroyablement facile. En 10 minutes, nous étions opérationnels. Leur support est exceptionnel !',
     },
 ];
 
@@ -52,7 +52,7 @@ const row1 = document.getElementById('row1');
 const row2 = document.getElementById('row2');
 
 const createCard = (card) => `
-        <div class="p-4 rounded-lg mx-4 w-72 shrink-0 bg-pink-950/30 border border-pink-950">
+        <div class="p-4 rounded-lg mx-4 w-72 shrink-0 bg-blue-950/30 border border-blue-950">
         <div class="flex gap-2">
             <img class="size-11 rounded-full" alt="${card.name}" src="${card.image}">
             <div class="flex flex-col">

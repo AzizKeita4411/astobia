@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Astobia Info Tech</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed top-0 z-50 flex items-center justify-between w-full py-4 px-6 md:px-16 lg:px-24 xl:px-32 backdrop-blur">
+        <a href="./index.html">
+            <img class="h-8.5 w-auto" src="./assets/logo.svg" alt="Astobia Info Tech logo" />
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 transition duration-500">
+            <a href="./index.html" class="hover:text-blue-500 transition">Accueil</a>
+            <a href="./index.html#services" class="hover:text-blue-500 transition">Services</a>
+            <a href="./a-propos.html" class="hover:text-blue-500 transition">À propos</a>
+            <a href="./contact.html" class="hover:text-blue-500 transition">Contact</a>
+        </div>
+
+        <a href="./contact.html" class="hidden md:block px-6 py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all rounded-full">
+            Demander un devis
+        </a>
+        <button id="open-menu" class="md:hidden active:scale-90 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        </button>
+    </nav>
+    <div id="mobile-navlinks" class="fixed inset-0 z-100 bg-black/40 backdrop-blur flex flex-col items-center justify-center text-lg gap-8 md:hidden transition-transform duration-400 -translate-x-full">
+        <a href="./index.html">Accueil</a>
+        <a href="./index.html#services">Services</a>
+        <a href="./a-propos.html">À propos</a>
+        <a href="./contact.html">Contact</a>
+        <button id="close-menu" class="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-blue-600 hover:bg-blue-700 transition text-white rounded-md flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32 mt-44">
+        <div class="absolute top-30 -z-10 left-1/4 size-72 bg-blue-600 blur-[300px]"></div>
+        <h1 class="text-5xl/17 md:text-6xl/21 font-medium max-w-2xl text-center">
+            À propos de 
+            <span class="move-gradient px-3 rounded-xl text-nowrap">Astobia Info Tech</span>
+        </h1>
+        <p class="text-base text-center text-slate-200 max-w-lg mt-6">
+            Nous sommes une équipe passionnée dédiée à transformer vos idées en solutions technologiques innovantes.
+        </p>
+    </div>
+
+    <!-- Mission Section -->
+    <section class="px-4 md:px-16 lg:px-24 xl:px-32 scroll-mt-20 mt-28">
+        <p class="text-center font-medium text-blue-600 px-10 py-2 rounded-full bg-blue-950/70 border border-blue-800 w-max mx-auto">Notre Mission</p>
+        <h3 class="text-3xl font-semibold text-center mx-auto mt-4">Transformer votre vision en réalité</h3>
+        <p class="text-slate-300 text-center mt-2 max-w-3xl mx-auto">
+            Chez Astobia Info Tech, nous croyons que chaque entreprise mérite des solutions informatiques de qualité supérieure. 
+            Notre mission est de fournir des services technologiques innovants qui permettent à nos clients de se concentrer sur 
+            ce qu'ils font de mieux : développer leur activité.
+        </p>
+    </section>
+
+    <!-- Values Section -->
+    <section class="px-4 md:px-16 lg:px-24 xl:px-32 scroll-mt-20 mt-28">
+        <p class="text-center font-medium text-blue-600 px-10 py-2 rounded-full bg-blue-950/70 border border-blue-800 w-max mx-auto">Nos Valeurs</p>
+        <h3 class="text-3xl font-semibold text-center mx-auto mt-4">Ce qui nous guide</h3>
+        
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-4 mt-16 px-6">
+            <div class="p-6 rounded-xl space-y-4 border border-slate-800 bg-slate-950 max-w-80 w-full">
+                <img alt="Innovation" src="./assets/zap-icon.svg">
+                <h3 class="text-base font-medium text-white">Innovation</h3>
+                <p class="text-slate-400 line-clamp-2 pb-4">Nous restons à la pointe de la technologie pour offrir les meilleures solutions à nos clients.</p>
+            </div>
+            <div class="p-px rounded-[13px] bg-gradient-to-br from-blue-600 to-slate-800">
+                <div class="p-6 rounded-xl space-y-4 border border-slate-800 bg-slate-950 max-w-80 w-full">
+                    <img alt="Excellence" src="./assets/thumb-icon.svg">
+                    <h3 class="text-base font-medium text-white">Excellence</h3>
+                    <p class="text-slate-400 line-clamp-2 pb-4">Nous visons l'excellence dans chaque projet, en garantissant qualité et performance.</p>
+                </div>
+            </div>
+            <div class="p-6 rounded-xl space-y-4 border border-slate-800 bg-slate-950 max-w-80 w-full">
+                <img alt="Transparence" src="./assets/shape-icon.svg">
+                <h3 class="text-base font-medium text-white">Transparence</h3>
+                <p class="text-slate-400 line-clamp-2 pb-4">Communication claire et honnête à chaque étape de votre projet.</p>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-4 mt-8 px-6">
+            <div class="p-6 rounded-xl space-y-4 border border-slate-800 bg-slate-950 max-w-80 w-full">
+                <img alt="Engagement" src="./assets/zap-icon.svg">
+                <h3 class="text-base font-medium text-white">Engagement</h3>
+                <p class="text-slate-400 line-clamp-2 pb-4">Nous nous engageons à respecter les délais et à dépasser vos attentes.</p>
+            </div>
+            <div class="p-6 rounded-xl space-y-4 border border-slate-800 bg-slate-950 max-w-80 w-full">
+                <img alt="Partenaire" src="./assets/thumb-icon.svg">
+                <h3 class="text-base font-medium text-white">Partenariat</h3>
+                <p class="text-slate-400 line-clamp-2 pb-4">Nous construisons des relations durables basées sur la confiance mutuelle.</p>
+            </div>
+            <div class="p-6 rounded-xl space-y-4 border border-slate-800 bg-slate-950 max-w-80 w-full">
+                <img alt="Support" src="./assets/shape-icon.svg">
+                <h3 class="text-base font-medium text-white">Support continu</h3>
+                <p class="text-slate-400 line-clamp-2 pb-4">Notre accompagnement ne s'arrête pas à la livraison, nous sommes là pour vous.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="px-4 md:px-16 lg:px-24 xl:px-32 scroll-mt-20 mt-28">
+        <p class="text-center font-medium text-blue-600 px-10 py-2 rounded-full bg-blue-950/70 border border-blue-800 w-max mx-auto">Notre Équipe</p>
+        <h3 class="text-3xl font-semibold text-center mx-auto mt-4">Des experts à votre service</h3>
+        <p class="text-slate-300 text-center mt-2 max-w-xl mx-auto">
+            Notre équipe est composée de développeurs, designers et consultants expérimentés, 
+            tous passionnés par la technologie et dédiés à votre succès.
+        </p>
+
+        <div class="mt-40 relative mx-auto max-w-5xl">
+            <div class="absolute -z-50 size-100 -top-10 -left-20 aspect-square rounded-full bg-blue-500/40 blur-3xl"></div>
+            <p class="text-slate-300 text-lg text-left max-w-3xl">
+                Avec des années d'expérience dans le développement d'applications, la création de plateformes SaaS 
+                et la maintenance informatique, nous avons aidé des centaines d'entreprises à atteindre leurs objectifs.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 mt-8 gap-10">
+                <div class="md:col-span-2">
+                    <img alt="Équipe Astobia Info Tech" src="./assets/features-showcase-1.png">
+                </div>
+                <div class="md:col-span-1">
+                    <img alt="Expertise technique" class="hover:-translate-y-0.5 transition duration-300" src="./assets/features-showcase-2.png">
+                    <h3 class="text-[24px]/7.5 text-slate-300 font-medium mt-6">Une expertise reconnue</h3>
+                    <p class="text-slate-300 mt-2">Notre équipe combine créativité et expertise technique pour créer des solutions exceptionnelles.</p>
+                    <a href="./contact.html" class="group flex items-center gap-2 mt-4 text-blue-600 hover:text-blue-700 transition">
+                        Rejoignez-nous
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-5 group-hover:translate-x-0.5 transition duration-300" aria-hidden="true">
+                            <path d="M7 7h10v10"></path>
+                            <path d="M7 17 17 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <div class="max-w-5xl py-16 mt-40 md:pl-20 md:w-full max-md:mx-4 md:mx-auto flex flex-col md:flex-row max-md:gap-6 items-center justify-between text-left bg-gradient-to-b from-blue-900 to-blue-950 rounded-2xl p-6 text-white">
+        <div>
+            <h1 class="text-4xl md:text-[46px] md:leading-[60px] font-semibold bg-gradient-to-r from-white to-blue-400 text-transparent bg-clip-text">Prêt à travailler avec nous ?</h1>
+            <p class="bg-gradient-to-r from-white to-blue-400 text-transparent bg-clip-text text-lg">Découvrez comment nous pouvons transformer votre entreprise.</p>
+        </div>
+        <a href="./contact.html" class="px-12 py-3 text-slate-800 bg-white hover:bg-slate-200 rounded-full text-sm mt-4">Nous contacter</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="flex flex-wrap justify-center md:justify-between overflow-hidden gap-10 md:gap-35 mt-40 py-6 px-6 md:px-16 lg:px-24 xl:px-32 text-[13px] text-gray-500">
+        <div class="flex flex-wrap items-start gap-10 md:gap-35">
+            <a href="./index.html">
+                <img class="size-8 aspect-square" alt="footer logo" src="./assets/footer-logo.svg">
+            </a>
+            <div>
+                <p class="text-slate-100 font-semibold">Services</p>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="./index.html#services" class="hover:text-blue-600 transition">Développement</a></li>
+                    <li><a href="./index.html#services" class="hover:text-blue-600 transition">SaaS</a></li>
+                    <li><a href="./index.html#services" class="hover:text-blue-600 transition">Sites web</a></li>
+                    <li><a href="./index.html#services" class="hover:text-blue-600 transition">Maintenance</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-slate-100 font-semibold">Entreprise</p>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="./a-propos.html" class="hover:text-blue-600 transition">À propos</a></li>
+                    <li><a href="./index.html" class="hover:text-blue-600 transition">Blog</a></li>
+                    <li><a href="./index.html#testimonials" class="hover:text-blue-600 transition">Témoignages</a></li>
+                    <li><a href="./contact.html" class="hover:text-blue-600 transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-slate-100 font-semibold">Légal</p>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="./index.html" class="hover:text-blue-600 transition">Confidentialité</a></li>
+                    <li><a href="./index.html" class="hover:text-blue-600 transition">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col max-md:items-center max-md:text-center gap-2 items-end">
+            <p class="max-w-60">Faire en sorte que chaque client se sente valorisé — quelle que soit la taille de votre entreprise.</p>
+            <div class="flex items-center gap-4 mt-3">
+                <a href="#" target="_blank" rel="noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dribbble size-5 hover:text-blue-500" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path></svg>
+                </a>
+                <a href="#" target="_blank" rel="noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin size-5 hover:text-blue-500" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="#" target="_blank" rel="noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter size-5 hover:text-blue-500" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                </a>
+                <a href="#" target="_blank" rel="noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube size-6 hover:text-blue-500" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+                </a>
+            </div>
+            <p class="mt-3 text-center">© 2025 <a href="./index.html">Astobia Info Tech</a></p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
