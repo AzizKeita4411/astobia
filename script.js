@@ -12,8 +12,10 @@ const closeMenuHandler = () => {
     navlinks.classList.add("-translate-x-full")
 }
 
-openMenu.addEventListener("click", openMenuHandler);
-closeMenu.addEventListener("click", closeMenuHandler);
+if (openMenu && closeMenu && navlinks) {
+    openMenu.addEventListener("click", openMenuHandler);
+    closeMenu.addEventListener("click", closeMenuHandler);
+}
 
 
 // Testimonials Section Marquee
@@ -74,9 +76,78 @@ const createCard = (card) => `
     `;
 
 const renderCards = (target) => {
+    if (!target) return;
     const doubled = [...cardsData, ...cardsData];
     doubled.forEach(card => target.insertAdjacentHTML('beforeend', createCard(card)));
 };
 
-renderCards(row1);
-renderCards(row2);
+if (row1) renderCards(row1);
+if (row2) renderCards(row2);
+
+// Reveal on scroll + 3D tilt hover (Option A)
+document.addEventListener('DOMContentLoaded', () => {
+	const revealEls = document.querySelectorAll('.reveal');
+	if (revealEls.length) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('reveal--visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+		);
+
+		revealEls.forEach((el) => observer.observe(el));
+	}
+
+	const tiltEls = document.querySelectorAll('.tilt-3d');
+	if (tiltEls.length) {
+		const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (prefersReduced) return;
+
+		tiltEls.forEach((el) => {
+			let frameId;
+
+			const onMove = (e) => {
+				const rect = el.getBoundingClientRect();
+				const x = (e.clientX - rect.left) / rect.width;
+				const y = (e.clientY - rect.top) / rect.height;
+
+				const rotateY = (x - 0.5) * 10;
+				const rotateX = (0.5 - y) * 10;
+
+				if (frameId) cancelAnimationFrame(frameId);
+				frameId = requestAnimationFrame(() => {
+					el.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+				});
+			};
+
+			const onLeave = () => {
+				if (frameId) cancelAnimationFrame(frameId);
+				el.style.transform = '';
+			};
+
+			el.addEventListener('mousemove', onMove);
+			el.addEventListener('mouseleave', onLeave);
+		});
+	}
+
+	const particlesContainer = document.getElementById('particles');
+	if (particlesContainer && !particlesContainer.dataset.initialized) {
+		particlesContainer.dataset.initialized = 'true';
+		const particleCount = 15;
+		for (let i = 0; i < particleCount; i++) {
+			const particle = document.createElement('div');
+			particle.className = 'particle';
+			particle.style.left = Math.random() * 100 + '%';
+			particle.style.top = Math.random() * 100 + '%';
+			particle.style.animationDelay = Math.random() * 20 + 's';
+			particle.style.animationDuration = (18 + Math.random() * 8) + 's';
+			particlesContainer.appendChild(particle);
+		}
+	}
+});
+
