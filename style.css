@@ -1229,18 +1229,30 @@ nav.fixed {
 
 @media (max-width: 768px) {
   nav.fixed {
+    position: -webkit-sticky !important;
+    position: sticky !important;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     background-color: rgba(2, 6, 23, 0.92);
     border-bottom: 1px solid rgba(51, 65, 85, 0.45);
+    transform: none !important;
+    -webkit-transform: none !important;
   }
 
   p {
-    line-height: 1.7;
+    line-height: 1.8 !important;
   }
 
   h1 {
-    line-height: 1.15;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    line-height: 1.25 !important;
+  }
+
+  h3 {
+    line-height: 1.25 !important;
   }
 
   .w-max {
