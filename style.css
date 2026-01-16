@@ -1212,7 +1212,7 @@ body {
    overflow-wrap: anywhere;
  }
 
-body > nav.fixed {
+nav.fixed {
   position: fixed !important;
   top: 0;
   left: 0;
@@ -1225,6 +1225,28 @@ body > nav.fixed {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   will-change: transform;
+}
+
+@media (max-width: 768px) {
+  nav.fixed {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: rgba(2, 6, 23, 0.92);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.45);
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  h1 {
+    line-height: 1.15;
+  }
+
+  .w-max {
+    width: auto;
+    max-width: calc(100vw - 32px);
+  }
 }
 
 body::before {
