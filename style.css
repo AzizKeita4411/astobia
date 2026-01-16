@@ -1208,6 +1208,10 @@ body {
   overflow-x: hidden;
 }
 
+ h1, h2, h3, p {
+   overflow-wrap: anywhere;
+ }
+
 body > nav.fixed {
   top: 0;
   left: 0;
@@ -2082,6 +2086,31 @@ button {
 @media (max-width: 768px) {
 	.about-philosophy .philosophy-headline {
 		font-size: 36px;
+	}
+
+	.about-philosophy.philosophy-section {
+		padding: 80px 16px;
+	}
+
+	.about-philosophy .prism-line {
+		margin: 0 auto 40px;
+	}
+
+	.about-philosophy .philosophy-subheading {
+		font-size: 16px;
+		margin: 0 auto 48px;
+	}
+
+	.about-philosophy .pillar {
+		padding: 28px 18px;
+	}
+
+	.about-philosophy .pillar-title {
+		font-size: 20px;
+	}
+
+	.about-philosophy .pillar-description {
+		font-size: 14px;
 	}
 }
 
