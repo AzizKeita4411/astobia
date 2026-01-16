@@ -1208,6 +1208,14 @@ body {
   overflow-x: hidden;
 }
 
+body > nav.fixed {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transform: translateZ(0);
+}
+
 body::before {
   content: '';
   position: fixed;
