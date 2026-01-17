@@ -1592,8 +1592,8 @@ button {
   backdrop-filter: blur(15px);
   box-shadow:
     inset 0 0 20px rgba(255, 255, 255, 0.192),
-    inset 0 0 5px rgba(255, 255, 255, 0.274),
-    0 5px 5px rgba(0, 0, 0, 0.164);
+    inset 0 0 5px rgba(43, 8, 241, 0.274),
+    0 5px 5px rgba(254, 254, 255, 0.164);
   transition: 0.5s;
 }
 
@@ -1622,15 +1622,15 @@ button {
   transition: all 0.3s;
   /* if you find some problems change w - h : 30px*/
   padding: 1rem;
-  height: 60px;
-  width: 60px;
+  height: 45px;
+  width: 45px;
   border-radius: 100%;
-  color: rgb(255, 174, 0);
+  color: rgb(0, 17, 255);
   fill: currentColor;
   box-shadow:
     inset 0 0 20px rgba(255, 255, 255, 0.3),
     inset 0 0 5px rgba(255, 255, 255, 0.5),
-    0 5px 5px rgba(0, 0, 0, 0.164);
+    0 5px 5px rgba(14, 0, 20, 0.164);
 }
 
 .text {
@@ -1638,7 +1638,7 @@ button {
   border-radius: 5px;
   padding: 5px;
   transition: all 0.3s;
-  color: rgb(255, 174, 0);
+  color: rgb(255, 255, 255);
   background-color: rgba(255, 255, 255, 0.3);
   position: absolute;
   z-index: 9999;
@@ -1647,7 +1647,7 @@ button {
     -10px 0 1px rgba(153, 153, 153, 0.2),
     inset 0 0 20px rgba(255, 255, 255, 0.3),
     inset 0 0 5px rgba(255, 255, 255, 0.5),
-    0 5px 5px rgba(0, 0, 0, 0.082);
+    0 5px 5px rgba(255, 255, 255, 0.082);
 }
 
 /*isometric prooyection*/
@@ -1672,16 +1672,16 @@ button {
   
   opacity: 0;
   position: absolute;
-  color: #1877f2;
-  border-color: #1877f2;
+  color: #ffffff;
+  border-color: #ffffff;
   box-shadow:
     inset 0 0 20px rgba(255, 255, 255, 0.3),
     inset 0 0 5px rgba(255, 255, 255, 0.5),
     0 5px 5px rgba(0, 0, 0, 0.164);
   border-radius: 50%;
   transition: all 0.3s;
-  height: 60px;
-  width: 60px;
+  height: 45px;
+  width: 45px;
 }
 
 .iso-pro:hover span {
