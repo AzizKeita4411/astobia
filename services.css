@@ -26,14 +26,11 @@
 .services-page .team-carousel.hero.hero--services-carousel {
 	min-height: 800px;
 	padding: 70px 20px 120px;
-	width: 100%;
-	justify-content: center;
 }
 
 .services-page .carousel-container {
 	width: 100%;
 	max-width: 1600px;
-	margin-inline: auto;
 	height: 600px;
 	perspective: 1200px;
 	position: relative;
@@ -57,7 +54,7 @@
 
 .services-page .carousel-item {
 	position: absolute;
-	width: min(400px, calc(100vw - 48px));
+	width: 400px;
 	height: 500px;
 	left: 50%;
 	top: 50%;
@@ -68,7 +65,7 @@
 }
 
 .services-page .team-carousel .carousel-item {
-	width: min(580px, calc(100vw - 48px));
+	width: 580px;
 	height: 680px;
 }
 
@@ -275,7 +272,7 @@
 
 @media (max-width: 1024px) {
 	.services-page .carousel-item {
-		width: min(350px, calc(100vw - 48px));
+		width: 350px;
 		height: 480px;
 	}
 
@@ -291,7 +288,7 @@
 	}
 
 	.services-page .team-carousel .carousel-item {
-		width: min(480px, calc(100vw - 48px));
+		width: 480px;
 		height: 620px;
 	}
 
@@ -319,7 +316,7 @@
 
 @media (max-width: 768px) {
 	.services-page .carousel-item {
-		width: min(300px, calc(100vw - 48px));
+		width: 300px;
 		height: 460px;
 	}
 
@@ -335,7 +332,7 @@
 	}
 
 	.services-page .team-carousel .carousel-item {
-		width: min(380px, calc(100vw - 48px));
+		width: 380px;
 		height: 560px;
 	}
 
