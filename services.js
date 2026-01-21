@@ -1,50 +1,50 @@
 const portfolioData = [
 	{
 		id: 1,
-		title: 'Neural Network',
-		description: 'Advanced AI system with deep learning capabilities for predictive analytics and pattern recognition.',
+		title: 'Réseau neuronal',
+		description: 'Système d\'IA avancé avec des capacités d\'apprentissage profond pour l\'analyse prédictive et la reconnaissance de motifs.',
 		image: 'neural-network.jpg',
 		tech: ['TensorFlow', 'Python', 'CUDA']
 	},
 	{
 		id: 2,
-		title: 'Quantum Cloud',
-		description: 'Next-generation cloud infrastructure leveraging quantum computing for unprecedented processing power.',
+		title: 'Cloud quantique',
+		description: 'Infrastructure cloud de nouvelle génération tirant parti du calcul quantique pour une puissance de traitement inédite.',
 		image: 'quantum-cloud.jpg',
 		tech: ['AWS', 'Kubernetes', 'Docker']
 	},
 	{
 		id: 3,
-		title: 'Blockchain Vault',
-		description: 'Secure decentralized storage solution using advanced encryption and distributed ledger technology.',
+		title: 'Coffre blockchain',
+		description: 'Solution de stockage décentralisée et sécurisée, basée sur le chiffrement avancé et la technologie de registre distribué.',
 		image: 'blockchain-vault.jpg',
 		tech: ['Ethereum', 'Solidity', 'Web3']
 	},
 	{
 		id: 4,
-		title: 'Cyber Defense',
-		description: 'Military-grade cybersecurity framework with real-time threat detection and automated response.',
+		title: 'Cybersécurité',
+		description: 'Cadre de cybersécurité de niveau avancé, avec détection des menaces en temps réel et réponse automatisée.',
 		image: 'cyber-defense.jpg',
 		tech: ['Zero Trust', 'AI Defense', 'Encryption']
 	},
 	{
 		id: 5,
-		title: 'Data Nexus',
-		description: 'Big data processing platform capable of analyzing petabytes of information in real-time.',
+		title: 'Nexus de données',
+		description: 'Plateforme Big Data capable d\'analyser des pétaoctets d\'informations en temps réel.',
 		image: 'data-nexus.jpg',
 		tech: ['Apache Spark', 'Hadoop', 'Kafka']
 	},
 	{
 		id: 6,
-		title: 'AR Interface',
-		description: 'Augmented reality system for immersive data visualization and interactive experiences.',
+		title: 'Interface AR',
+		description: 'Système de réalité augmentée pour une visualisation immersive des données et des expériences interactives.',
 		image: 'ar-interface.jpg',
 		tech: ['Unity', 'ARCore', 'Computer Vision']
 	},
 	{
 		id: 7,
-		title: 'IoT Matrix',
-		description: 'Intelligent IoT ecosystem connecting millions of devices with edge computing capabilities.',
+		title: 'Matrice IoT',
+		description: 'Écosystème IoT intelligent connectant des millions d\'appareils avec des capacités d\'edge computing.',
 		image: 'iot-matrix.jpg',
 		tech: ['MQTT', 'Edge AI', '5G']
 	}
@@ -62,7 +62,7 @@ const teamData = [
 		id: 2,
 		title: 'Membre 02',
 		description: 'Rôle (ex: Designer UI/UX)',
-		image: 'assets/théwo.png',
+		image: 'assets/the%CC%81wo.png',
 		tech: ['UX', 'UI', 'Brand']
 	},
 	{
@@ -83,20 +83,17 @@ const teamData = [
 
 function getPortfolioImageBasePath() {
 	const path = window.location.pathname || '';
-	// This project stores carousel images in ./assets/images/
 	if (!path.includes('/reusable/sections/home/')) return './assets/images/';
-	// Standalone: reusable/sections/home/index.html (images are in project root /images)
 	if (path.includes('/reusable/sections/home/')) return '../../../images/';
-	// Modular/original: images live in /images
 	return 'images/';
 }
 
 function resolveImageSrc(imageBasePath, image) {
 	if (!image) return '';
 	if (image.startsWith('http://') || image.startsWith('https://')) return image;
-	if (image.startsWith('/') || image.startsWith('./') || image.startsWith('../')) return image;
-	if (image.includes('/')) return image;
-	return `${imageBasePath}${image}`;
+	if (image.startsWith('/') || image.startsWith('./') || image.startsWith('../')) return encodeURI(image);
+	if (image.includes('/')) return encodeURI(image);
+	return encodeURI(`${imageBasePath}${image}`);
 }
 
 function scrollToSection(sectionId) {
@@ -128,6 +125,13 @@ function initCarouselInstance({
 	if (carousel.dataset.initialized === 'true') return;
 	carousel.dataset.initialized = 'true';
 
+	const isIOS = (() => {
+		if (typeof navigator === 'undefined') return false;
+		const ua = navigator.userAgent || '';
+		const platform = navigator.platform || '';
+		return /iPad|iPhone|iPod/.test(ua) || (platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+	})();
+
 	let currentIndex = 0;
 
 	function createCarouselItem(itemData, index) {
@@ -147,7 +151,7 @@ function initCarouselInstance({
 				<h3 class="card-title">${itemData.title}</h3>
 				<p class="card-description">${itemData.description}</p>
 				<div class="card-tech">${techBadges}</div>
-				<button class="card-cta" onclick="scrollToSection('contact')">Explore</button>
+				<button class="card-cta" onclick="scrollToSection('contact')">Découvrir</button>
 			</div>
 		`;
 
@@ -201,25 +205,33 @@ function initCarouselInstance({
 				const translateX = sign * spacing1;
 				const rotation = isMobile ? 25 : 30;
 				const scale = isMobile ? 0.88 : 0.85;
-				item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(-200px) rotateY(${-sign * rotation}deg) scale(${scale})`;
+				item.style.transform = isIOS
+					? `translate(-50%, -50%) translateX(${translateX}px) scale(${scale})`
+					: `translate(-50%, -50%) translateX(${translateX}px) translateZ(-200px) rotateY(${-sign * rotation}deg) scale(${scale})`;
 				item.style.opacity = '0.8';
 				item.style.zIndex = '5';
 			} else if (absOffset === 2) {
 				const translateX = sign * spacing2;
 				const rotation = isMobile ? 35 : 40;
 				const scale = isMobile ? 0.75 : 0.7;
-				item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(-350px) rotateY(${-sign * rotation}deg) scale(${scale})`;
+				item.style.transform = isIOS
+					? `translate(-50%, -50%) translateX(${translateX}px) scale(${scale})`
+					: `translate(-50%, -50%) translateX(${translateX}px) translateZ(-350px) rotateY(${-sign * rotation}deg) scale(${scale})`;
 				item.style.opacity = '0.5';
 				item.style.zIndex = '3';
 			} else if (absOffset === 3) {
 				const translateX = sign * spacing3;
 				const rotation = isMobile ? 40 : 45;
 				const scale = isMobile ? 0.65 : 0.6;
-				item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(-450px) rotateY(${-sign * rotation}deg) scale(${scale})`;
+				item.style.transform = isIOS
+					? `translate(-50%, -50%) translateX(${translateX}px) scale(${scale})`
+					: `translate(-50%, -50%) translateX(${translateX}px) translateZ(-450px) rotateY(${-sign * rotation}deg) scale(${scale})`;
 				item.style.opacity = '0.3';
 				item.style.zIndex = '2';
 			} else {
-				item.style.transform = 'translate(-50%, -50%) translateZ(-500px) scale(0.5)';
+				item.style.transform = isIOS
+					? 'translate(-50%, -50%) scale(0.5)'
+					: 'translate(-50%, -50%) translateZ(-500px) scale(0.5)';
 				item.style.opacity = '0';
 				item.style.zIndex = '1';
 			}
