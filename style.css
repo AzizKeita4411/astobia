@@ -2292,6 +2292,21 @@ button {
 
 /* Améliorations tactiles générales pour tous les appareils - Plus spécifique */
 @media (max-width: 768px) {
+  /* Boutons du hero (accueil + services) : éviter le désordre */
+  .hero-bg .flex.items-center.gap-4 {
+    flex-wrap: wrap;
+    row-gap: 12px;
+    column-gap: 12px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-bg .flex.items-center.gap-4 a {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
   /* Seulement les boutons CTA principaux */
   .hero-bg > div > a,
   button.bg-blue-600,
