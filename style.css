@@ -2095,15 +2095,8 @@ button {
 
 /* Très petits écrans (< 480px) */
 @media (max-width: 480px) {
-  /* Navigation */
-  nav {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  nav img {
-    height: 1.75rem;
-  }
+  /* Navigation - Ne pas écraser les styles existants */
+  /* Les styles de navigation sont déjà gérés par Tailwind */
 
   /* Hero Section */
   .hero-bg {
@@ -2113,31 +2106,28 @@ button {
   }
 
   .hero-bg h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-    padding: 0 1rem;
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
   }
 
-  .hero-bg p {
+  .hero-bg > p {
+    font-size: 0.875rem !important;
+  }
+
+  /* Boutons dans le hero - Plus spécifique */
+  .hero-bg > div > a {
     font-size: 0.875rem;
-    padding: 0 1rem;
   }
 
-  /* Boutons */
-  .hero-bg a {
-    font-size: 0.875rem;
-    padding: 0.75rem 1.25rem;
-    height: auto;
-  }
+  /* Sections - Ne pas écraser les paddings existants avec px-4, etc. */
+  /* Les paddings sont déjà gérés par les classes Tailwind */
 
-  /* Sections */
-  section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  /* Titres de sections */
-  section h3 {
+  /* Titres de sections - Plus spécifique pour éviter les conflits */
+  section > h3,
+  #services h3,
+  #pricing h3,
+  #contact h3,
+  #testimonials h3 {
     font-size: 1.5rem;
   }
 
@@ -2147,9 +2137,10 @@ button {
     max-width: 100%;
   }
 
-  /* Formulaires */
-  form input,
-  form textarea {
+  /* Formulaires - Seulement pour éviter le zoom iOS */
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"] {
     font-size: 16px; /* Évite le zoom automatique sur iOS */
   }
 
@@ -2260,14 +2251,12 @@ button {
     -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
   }
 
-  /* Améliorer l'espacement des liens */
-  nav a,
-  footer a {
-    padding: 0.5rem 0.75rem;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  /* Améliorer l'espacement des liens - Seulement pour mobile */
+  @media (max-width: 768px) {
+    #mobile-navlinks a {
+      padding: 0.5rem 0.75rem;
+      min-height: 44px;
+    }
   }
 
   /* Désactiver les effets hover sur tactile */
@@ -2285,10 +2274,10 @@ button {
     touch-action: manipulation;
   }
 
-  /* Améliorer les indicateurs et contrôles */
-  .indicator {
-    min-width: 44px;
-    min-height: 44px;
+  /* Améliorer les indicateurs et contrôles - Ne pas casser les styles existants */
+  .services-page .indicator {
+    min-width: 12px;
+    min-height: 12px;
     touch-action: manipulation;
   }
 
@@ -2301,93 +2290,40 @@ button {
   }
 }
 
-/* Améliorations tactiles générales pour tous les appareils */
+/* Améliorations tactiles générales pour tous les appareils - Plus spécifique */
 @media (max-width: 768px) {
-  button,
-  .bg-blue-600,
-  .bg-white,
-  a.bg-blue-600,
-  a.bg-white,
-  .card-cta,
-  .carousel-btn {
+  /* Seulement les boutons CTA principaux */
+  .hero-bg > div > a,
+  button.bg-blue-600,
+  a.bg-blue-600:not(nav a):not(footer a),
+  a.bg-white:not(nav a):not(footer a),
+  .card-cta {
     min-height: 44px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
     touch-action: manipulation;
     -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
   }
 
-  /* Boutons dans le hero */
-  .hero-bg a {
-    min-height: 48px;
-    padding: 0.875rem 1.75rem;
-    font-size: 1rem;
-  }
-
-  /* Liens dans la navigation mobile */
-  #mobile-navlinks a {
-    min-height: 48px;
-    padding: 1rem 1.5rem;
-    font-size: 1.125rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Inputs et textareas */
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  textarea {
+  /* Inputs et textareas - Seulement dans les formulaires */
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"],
+  form textarea {
     min-height: 48px;
     padding: 0.875rem;
-    font-size: 1rem;
   }
-
-  /* Améliorer les liens cliquables */
-  a:not(nav a):not(footer a) {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    touch-action: manipulation;
+  
+  /* Éviter le zoom sur iOS - Seulement pour les inputs de formulaire */
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"] {
+    font-size: 16px;
   }
 }
 
-/* Correction du débordement horizontal */
+/* Correction du débordement horizontal - Ne pas écraser les styles existants */
 html, body {
   overflow-x: hidden;
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* Prévenir les débordements sur tous les conteneurs */
-.container,
-section,
-header,
-footer,
-main {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Fix pour les éléments avec position absolute qui pourraient dépasser */
-.absolute {
-  max-width: 100%;
-}
-
-/* Correction pour les flexbox qui dépassent */
-.flex {
-  min-width: 0;
-}
-
-/* Correction pour les grilles */
-.grid {
-  min-width: 0;
+  max-width: 100vw;
 }
 
 /* Images responsives */
@@ -2416,31 +2352,11 @@ img {
     margin-top: 2rem;
   }
 
-  /* Ajuster les paddings */
-  .px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+  /* Ne pas écraser les classes Tailwind - elles sont déjà responsive */
 
-  /* Améliorer les gaps */
-  .gap-8 {
-    gap: 1.5rem;
-  }
+  /* Ne pas écraser les classes Tailwind gap-* */
 
-  .gap-14 {
-    gap: 1rem;
-  }
-
-  /* Footer responsive */
-  footer .flex-wrap {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  /* Contact form responsive */
-  #contact .grid {
-    grid-template-columns: 1fr;
-  }
+  /* Footer et contact - Les styles existants sont déjà gérés */
 }
 
 /* Optimisations pour les navigateurs anciens */
@@ -2487,23 +2403,10 @@ img {
   }
 }
 
-/* Amélioration de la lisibilité sur petits écrans */
+/* Amélioration de la lisibilité sur petits écrans - Plus subtil */
 @media (max-width: 480px) {
-  body {
-    font-size: 0.875rem;
-  }
-
-  .text-base {
-    font-size: 0.875rem;
-  }
-
-  .text-lg {
-    font-size: 1rem;
-  }
-
-  .text-3xl {
-    font-size: 1.5rem;
-  }
+  /* Ne pas écraser les classes Tailwind text-* */
+  /* Seulement ajuster si vraiment nécessaire pour les très petits écrans */
 }
 
 /* Amélioration des boutons CTA */
