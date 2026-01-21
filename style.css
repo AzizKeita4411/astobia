@@ -1208,6 +1208,59 @@ body {
   overflow-x: hidden;
 }
 
+ h1, h2, h3, p {
+   overflow-wrap: anywhere;
+ }
+
+nav.fixed {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100vw;
+  z-index: 10000;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  nav.fixed {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: rgba(2, 6, 23, 0.92);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.45);
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  p {
+    line-height: 1.8 !important;
+  }
+
+  h1 {
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    line-height: 1.25 !important;
+  }
+
+  h3 {
+    line-height: 1.25 !important;
+  }
+
+  .w-max {
+    width: auto;
+    max-width: calc(100vw - 32px);
+  }
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -2075,6 +2128,31 @@ button {
 	.about-philosophy .philosophy-headline {
 		font-size: 36px;
 	}
+
+	.about-philosophy.philosophy-section {
+		padding: 80px 16px;
+	}
+
+	.about-philosophy .prism-line {
+		margin: 0 auto 40px;
+	}
+
+	.about-philosophy .philosophy-subheading {
+		font-size: 16px;
+		margin: 0 auto 48px;
+	}
+
+	.about-philosophy .pillar {
+		padding: 28px 18px;
+	}
+
+	.about-philosophy .pillar-title {
+		font-size: 20px;
+	}
+
+	.about-philosophy .pillar-description {
+		font-size: 14px;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2091,381 +2169,3 @@ button {
   }
 }
 
-/* ===== AMÉLIORATIONS RESPONSIVE GLOBALES ===== */
-
-/* Très petits écrans (< 480px) */
-@media (max-width: 480px) {
-  /* Navigation - Ne pas écraser les styles existants */
-  /* Les styles de navigation sont déjà gérés par Tailwind */
-
-  /* Hero Section */
-  .hero-bg {
-    min-height: 100vh;
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-  }
-
-  .hero-bg h1 {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
-  }
-
-  .hero-bg > p {
-    font-size: 0.875rem !important;
-  }
-
-  /* Boutons dans le hero - Plus spécifique */
-  .hero-bg > div > a {
-    font-size: 0.875rem;
-  }
-
-  /* Sections - Ne pas écraser les paddings existants avec px-4, etc. */
-  /* Les paddings sont déjà gérés par les classes Tailwind */
-
-  /* Titres de sections - Plus spécifique pour éviter les conflits */
-  section > h3,
-  #services h3,
-  #pricing h3,
-  #contact h3,
-  #testimonials h3 {
-    font-size: 1.5rem;
-  }
-
-  /* Cartes de tarifs */
-  .tilt-3d.w-72 {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* Formulaires - Seulement pour éviter le zoom iOS */
-  form input[type="text"],
-  form input[type="email"],
-  form input[type="tel"] {
-    font-size: 16px; /* Évite le zoom automatique sur iOS */
-  }
-
-  /* Footer */
-  footer {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    gap: 2rem;
-  }
-
-  footer > div {
-    width: 100%;
-  }
-
-  /* Call to action */
-  .max-w-5xl {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-
-  .max-w-5xl h1 {
-    font-size: 1.75rem;
-    line-height: 1.3;
-  }
-
-  /* Marquee */
-  .marquee-row {
-    margin-left: -1rem;
-    margin-right: -1rem;
-  }
-
-  .marquee-inner > div {
-    width: 85vw;
-    max-width: 280px;
-  }
-
-  /* Pricing cards */
-  #pricing .flex {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  #pricing .w-72 {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-/* Petits écrans (481px - 640px) */
-@media (min-width: 481px) and (max-width: 640px) {
-  .hero-bg h1 {
-    font-size: 2.5rem;
-  }
-
-  #pricing .flex {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  #pricing .w-72 {
-    width: calc(100% - 2rem);
-    max-width: 320px;
-  }
-}
-
-/* Tablettes portrait (641px - 768px) */
-@media (min-width: 641px) and (max-width: 768px) {
-  .hero-bg h1 {
-    font-size: 3rem;
-  }
-
-  #pricing .flex {
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  #pricing .w-72 {
-    width: calc(50% - 0.75rem);
-    max-width: 320px;
-  }
-}
-
-/* Écrans moyens (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  #pricing .flex {
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  #pricing .w-72 {
-    width: calc(33.333% - 1.5rem);
-    max-width: 300px;
-  }
-}
-
-/* Optimisations pour le tactile */
-@media (hover: none) and (pointer: coarse) {
-  /* Augmenter la taille des zones tactiles */
-  button,
-  a[role="button"],
-  .carousel-btn,
-  input[type="submit"],
-  input[type="button"],
-  .card-cta {
-    min-height: 44px;
-    min-width: 44px;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
-  }
-
-  /* Améliorer l'espacement des liens - Seulement pour mobile */
-  @media (max-width: 768px) {
-    #mobile-navlinks a {
-      padding: 0.5rem 0.75rem;
-      min-height: 44px;
-    }
-  }
-
-  /* Désactiver les effets hover sur tactile */
-  .tilt-3d:hover {
-    transform: none;
-  }
-
-  /* Améliorer les inputs tactiles */
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  textarea,
-  select {
-    min-height: 44px;
-    touch-action: manipulation;
-  }
-
-  /* Améliorer les indicateurs et contrôles - Ne pas casser les styles existants */
-  .services-page .indicator {
-    min-width: 12px;
-    min-height: 12px;
-    touch-action: manipulation;
-  }
-
-  /* Boutons du menu mobile */
-  #open-menu,
-  #close-menu {
-    min-width: 44px;
-    min-height: 44px;
-    touch-action: manipulation;
-  }
-}
-
-/* Améliorations tactiles générales pour tous les appareils - Plus spécifique */
-@media (max-width: 768px) {
-  /* Boutons du hero (accueil + services) : éviter le désordre */
-  .hero-bg .flex.items-center.gap-4 {
-    flex-wrap: wrap;
-    row-gap: 12px;
-    column-gap: 12px;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .hero-bg .flex.items-center.gap-4 a {
-    width: 100%;
-    max-width: 320px;
-    justify-content: center;
-  }
-
-  /* Seulement les boutons CTA principaux */
-  .hero-bg > div > a,
-  button.bg-blue-600,
-  a.bg-blue-600:not(nav a):not(footer a),
-  a.bg-white:not(nav a):not(footer a),
-  .card-cta {
-    min-height: 44px;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
-  }
-
-  /* Inputs et textareas - Seulement dans les formulaires */
-  form input[type="text"],
-  form input[type="email"],
-  form input[type="tel"],
-  form textarea {
-    min-height: 48px;
-    padding: 0.875rem;
-  }
-  
-  /* Éviter le zoom sur iOS - Seulement pour les inputs de formulaire */
-  form input[type="text"],
-  form input[type="email"],
-  form input[type="tel"] {
-    font-size: 16px;
-  }
-}
-
-/* Correction du débordement horizontal - Ne pas écraser les styles existants */
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
-}
-
-/* Images responsives */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Amélioration des textes sur petits écrans */
-@media (max-width: 768px) {
-  /* Réduire les espacements */
-  .mt-44 {
-    margin-top: 6rem;
-  }
-
-  .mt-40 {
-    margin-top: 4rem;
-  }
-
-  .mt-28 {
-    margin-top: 3rem;
-  }
-
-  .mt-20 {
-    margin-top: 2rem;
-  }
-
-  /* Ne pas écraser les classes Tailwind - elles sont déjà responsive */
-
-  /* Ne pas écraser les classes Tailwind gap-* */
-
-  /* Footer et contact - Les styles existants sont déjà gérés */
-}
-
-/* Optimisations pour les navigateurs anciens */
-@supports not (display: grid) {
-  .grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .grid > * {
-    flex: 1 1 100%;
-  }
-
-  @media (min-width: 640px) {
-    .sm\:grid-cols-2 > * {
-      flex: 1 1 calc(50% - 0.75rem);
-    }
-  }
-
-  @media (min-width: 768px) {
-    .md\:grid-cols-2 > * {
-      flex: 1 1 calc(50% - 0.75rem);
-    }
-
-    .md\:grid-cols-3 > * {
-      flex: 1 1 calc(33.333% - 1rem);
-    }
-  }
-}
-
-/* Correction pour Safari iOS */
-@supports (-webkit-touch-callout: none) {
-  .hero-bg {
-    min-height: -webkit-fill-available;
-  }
-
-  /* Éviter le zoom sur les inputs */
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  textarea,
-  select {
-    font-size: 16px;
-  }
-}
-
-/* Amélioration de la lisibilité sur petits écrans - Plus subtil */
-@media (max-width: 480px) {
-  /* Ne pas écraser les classes Tailwind text-* */
-  /* Seulement ajuster si vraiment nécessaire pour les très petits écrans */
-}
-
-/* Amélioration des boutons CTA */
-@media (max-width: 768px) {
-  .bg-blue-600,
-  .bg-white {
-    font-size: 0.875rem;
-    padding: 0.625rem 1.25rem;
-  }
-}
-
-/* Fix pour les cartes de témoignages */
-@media (max-width: 640px) {
-  .marquee-inner > div {
-    min-width: 260px;
-  }
-}
-
-/* Amélioration du menu mobile */
-@media (max-width: 768px) {
-  #mobile-navlinks {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  #mobile-navlinks a {
-    font-size: 1.125rem;
-    padding: 0.75rem 1.5rem;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Correction pour les très petits écrans */
-@media (max-width: 360px) {
-  .hero-bg h1 {
-    font-size: 1.75rem;
-  }
-
-  .text-4xl {
-    font-size: 1.75rem;
-  }
-
-  .text-5xl {
-    font-size: 2rem;
-  }
-}
